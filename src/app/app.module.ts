@@ -30,7 +30,13 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import {
+  AngularFireAuthModule,
+  USE_DEVICE_LANGUAGE,
+  PERSISTENCE,
+} from '@angular/fire/compat/auth';
 
+// Components Imports
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
@@ -72,11 +78,10 @@ import { EditUserFormComponent } from './forms/edit-user-form/edit-user-form.com
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
-    AngularFireAnalyticsModule,
-    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
+    AngularFireAuthModule,
     MatSnackBarModule,
     MatTableModule,
     MatProgressSpinnerModule,
@@ -86,7 +91,10 @@ import { EditUserFormComponent } from './forms/edit-user-form/edit-user-form.com
     MatMenuModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    { provide: USE_DEVICE_LANGUAGE, useValue: true },
+    { provide: PERSISTENCE, useValue: 'session' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

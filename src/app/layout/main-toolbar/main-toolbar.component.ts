@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-toolbar',
@@ -6,7 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./main-toolbar.component.css'],
 })
 export class MainToolbarComponent implements OnInit {
-  constructor() {}
+  constructor(public auth: AngularFireAuth, private router: Router) {}
 
   @Output() openMenu = new EventEmitter<any>();
 
@@ -14,5 +16,14 @@ export class MainToolbarComponent implements OnInit {
 
   openMain() {
     this.openMenu.emit();
+  }
+
+  logout() {
+    this.auth
+      .signOut()
+      .then(() => {
+        this.router.navigate(['/']);
+      })
+      .catch((error) => alert('Error al cerrar la sesion:' + error));
   }
 }
