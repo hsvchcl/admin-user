@@ -1,0 +1,9 @@
+<img src="/assets/svg_icons/delete.svg" height="150" alt="">
+<h2 mat-dialog-title>{{ data?.title }}</h2>
+<div mat-dialog-content>{{ data?.message }}</div>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>{{ data?.button_cancel_text }}</button>
+  <button mat-button mat-dialog-close cdkFocusInitial color="error" [mat-dialog-close]="true">
+    {{ data?.button_action_text }}
+  </button>
+</div>

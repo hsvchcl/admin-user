@@ -1,0 +1,15 @@
+<mat-drawer-container class="drawer__example-container" autosize>
+  <mat-drawer #drawer class="drawer__example-sidenav" mode="side">
+    <div class="drawer__img_container">
+      <img src="/assets/svg_icons/user.png" alt="logo-image" height="100" />
+    </div>
+    <div class="drawer__button_container">
+      <button routerLink="/home/add_user" routerLinkActive="general__link_active" mat-button>ADD NEW USER</button>
+      <button routerLink="/home/get_users" routerLinkActive="general__link_active" mat-button>USER REGISTER</button>
+    </div>
+  </mat-drawer>
+  <app-main-toolbar (openMenu)="drawer.toggle()"> ></app-main-toolbar>
+  <div class="drawer__section_container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

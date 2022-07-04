@@ -1,1 +1,110 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.modal__action {
+  width: 400px !important;
+  text-align: center;
+}
+
+.modal__delete_action {
+  background: #5800134f;
+  backdrop-filter: blur(10px);
+}
+
+.modal__edit_action {
+  background: #ffffffa9;
+  backdrop-filter: blur(3px);
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: red;
+}
+
+.center_content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.general__link_active {
+  background-color: #fc0004 !important;
+  color: aliceblue;
+}
+
+.general__form_container {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.general__form_container mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.general__form_container button {
+  text-transform: uppercase;
+  background-color: #fc0004 !important;
+}
+
+.general__form_container button:disabled {
+  text-transform: uppercase;
+  background-color: #eaeaea67 !important;
+}
+
+.general__loading_button_animation {
+  pointer-events: none;
+  background: linear-gradient(270deg, #ff5100, #c912f2);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 1s ease infinite;
+  -moz-animation: AnimationName 1s ease infinite;
+  animation: AnimationName 1s ease infinite;
+}
+.general__loading_button_animation > * {
+  color: white !important;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

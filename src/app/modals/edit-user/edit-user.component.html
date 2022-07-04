@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Editar usuario</h2>
+<br />
+<div mat-dialog-content>
+  <app-edit-user-form
+    [userData]="data"
+    (saveEdition)="saveEdition($event)"
+    #action
+  ></app-edit-user-form>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>CANCEL</button>
+  <button
+    [ngClass]="{ general__loading_button_animation: loading }"
+    mat-button
+    color="primary"
+    (click)="action.onSubmit()"
+  >
+    SAVE
+  </button>
+</div>

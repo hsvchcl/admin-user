@@ -1,0 +1,83 @@
+<mat-spinner [diameter]="40" *ngIf="loading; else loadTable"></mat-spinner>
+<ng-template #loadTable>
+  <div *ngIf="dataSource && dataLength; else noItems">
+    <h1>Users Register</h1>
+    <mat-divider></mat-divider>
+    <br /><br />
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>status</th>
+        <td mat-cell *matCellDef="let element" style="width: 100px">
+          <mat-chip-list aria-label="Fish selection" *ngIf="element.active">
+            <mat-chip color="accent" selected>{{
+              element.active && "Active"
+            }}</mat-chip>
+          </mat-chip-list>
+        </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="comuna">
+        <th mat-header-cell *matHeaderCellDef>Comuna</th>
+        <td mat-cell *matCellDef="let element">{{ element.address.comuna }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="region">
+        <th mat-header-cell *matHeaderCellDef>Región</th>
+        <td mat-cell *matCellDef="let element">{{ element.address.region }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+            [matMenuTriggerFor]="menu"
+          >
+            <mat-icon>expand_more</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openDialogEdit(element)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="openDialogDelete(element)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+</ng-template>
+
+<ng-template #noItems>
+  <div class="users__no_items_container">
+    <div class="users__no_items_content">
+      <img src="assets/svg_icons/empty.svg" width="300" alt="" />
+      <h1>We have not found any results</h1>
+    </div>
+  </div>
+</ng-template>

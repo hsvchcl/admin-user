@@ -1,0 +1,60 @@
+<form
+  #newUserForm="ngForm"
+  class="general__form_container"
+  [formGroup]="editFormUser!"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>User Name</mat-label>
+    <input
+      matInput
+      name="firstName"
+      placeholder="Jhon"
+      formControlName="firstName"
+    />
+    <mat-error *ngIf="editFormUser!.controls['firstName'].errors?.['required']"
+      >😡 Name is required.</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last name</mat-label>
+    <input matInput placeholder="Doe" formControlName="lastName" />
+    <mat-error *ngIf="editFormUser!.controls['lastName'].errors?.['required']"
+      >😡 Last name is required.</mat-error
+    >
+  </mat-form-field>
+
+  <div formGroupName="address">
+    <mat-form-field appearance="outline">
+      <mat-label>Region</mat-label>
+      <mat-select formControlName="region" name="food">
+        <mat-option
+          *ngFor="let region of regionComunaList"
+          [value]="region.region"
+        >
+          {{ region.region }}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="editFormUser?.get('address.region')?.errors?.['required']"
+        >😡 Region is required.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="outline"
+      *ngIf="comunaArray?.length > 0 || userData.address.comuna"
+    >
+      <mat-label>Comuna</mat-label>
+      <mat-select formControlName="comuna" name="food" #comunaSelect>
+        <mat-option *ngFor="let comuna of comunaArray" [value]="comuna">
+          {{ comuna }}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="editFormUser?.get('address.comuna')?.errors?.['required']"
+        >😡 Comuna is required.</mat-error
+      >
+    </mat-form-field>
+  </div>
+</form>

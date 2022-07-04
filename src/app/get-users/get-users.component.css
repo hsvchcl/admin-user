@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+
+th {
+  text-transform: uppercase;
+}
+
+.users__no_items_container {
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  border: 1px solid #969696;
+}
+
+.users__no_items_content {
+  text-align: center;
+}

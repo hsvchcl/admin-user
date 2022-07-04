@@ -1,0 +1,7 @@
+.toolbar__example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar__button_menu{
+  margin-right: 10px;
+}

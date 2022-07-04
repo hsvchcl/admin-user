@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hsvchcl-angular-crud": {
+      "hosting": {
+        "remember-project": [
+          "hsvchcl-angular-crud"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hsvchcl-angular-crud"
+  }
+}
