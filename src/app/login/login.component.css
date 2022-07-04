@@ -1,20 +1,58 @@
-.login__card{
-    padding: 20px;
-    border: 1px solid #eeeeee;
-    width: 300px;
-    height: 300px;
-    border-radius: 5px;
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-between;
+.login__card {
+  padding: 20px;
+  border: 1px solid #eeeeee;
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.login__title h1{
-    text-align: center;
-    font-weight: 300;
+.login__title h1 {
+  text-align: center;
+  font-weight: 300;
 }
 
-.login__button button{
-    width: 100%;
-    margin-top: 10px;
+.login__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.login__button button {
+  width: 90%;
+  min-width: 170px;
+  height: 60px;
+  text-transform: uppercase;
+}
+
+.login__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.login_sec_a {
+  width: 60%;
+}
+.login_sec_b {
+  background-color: whitesmoke;
+  width: 40%;
+}
+
+.button_google:hover {
+  transition: 0.5s;
+  background-color: #db4437;
+  color: white;
+}
+.button_facebook:hover {
+  transition: 0.5s;
+  background-color: #4267B2;
+  color: white;
 }
