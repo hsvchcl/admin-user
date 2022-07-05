@@ -9,10 +9,21 @@
   </button>
   <span>USER<strong>ADMIN</strong></span>
   <span class="toolbar__example-spacer"></span>
+  <div class="toolbar__user_info">
+    <div class="circular--portrait">
+      <img
+        class="circular--square"
+        src="{{ currentUser?.photoURL }}"
+        alt="Photo of a Shiba Inu"
+      />
+    </div>
+  </div>
   <button
     mat-icon-button
+    matTooltip="Cerrar sesión"
+    [matTooltipPosition]="'above'"
     class="home__example-icon"
-    aria-label="Example icon-button with share icon"
+    aria-label="Botón de cerrar sesion"
     (click)="logout()"
   >
     <mat-icon>exit_to_app</mat-icon>

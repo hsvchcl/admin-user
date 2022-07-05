@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, Subscription } from 'rxjs';
+import firebase from 'firebase/compat/app';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,7 +16,7 @@ import { ActionAlertComponent } from '../modals/action-alert/action-alert.compon
   styleUrls: ['./get-users.component.css'],
 })
 export class GetUsersComponent implements OnInit, OnDestroy {
-  items: Observable<any[]>;
+  items: Observable<any[]> | undefined;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -39,12 +40,15 @@ export class GetUsersComponent implements OnInit, OnDestroy {
     private afs: AngularFirestore,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar
-  ) {
-    this.items = afs.collection('users').valueChanges({ idField: 'id' });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.loading = true;
+    this.items = this.afs
+      .collection('users', (ref) =>
+        ref.where('uid', '==', firebase.auth().currentUser?.uid)
+      )
+      .valueChanges({ idField: 'id' });
     this.subscription = this.items.subscribe((el) => {
       this.dataSource = new MatTableDataSource(el);
       this.dataLength = el.length;

@@ -24,6 +24,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Angular Firebase
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
@@ -90,6 +91,7 @@ import { EditUserFormComponent } from './forms/edit-user-form/edit-user-form.com
     MatChipsModule,
     MatMenuModule,
     MatDialogModule,
+    MatTooltipModule,
   ],
   providers: [
     { provide: USE_DEVICE_LANGUAGE, useValue: true },

@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
+import firebase from 'firebase/compat/app';
 import { regionesComuna } from '../../../utils/regiones-comuna';
 
 @Component({
@@ -50,7 +51,12 @@ export class AddUserComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.loading = true;
     let newUser: any = this.profileForm.value;
-    newUser = { ...newUser, createdAt: Date.now(), active: true };
+    newUser = {
+      ...newUser,
+      createdAt: Date.now(),
+      active: true,
+      uid: firebase.auth().currentUser?.uid,
+    };
 
     this.afs
       .collection<any>('users')

@@ -1,7 +1,7 @@
 <mat-spinner [diameter]="40" *ngIf="loading; else loadTable"></mat-spinner>
 <ng-template #loadTable>
   <div *ngIf="dataSource && dataLength; else noItems">
-    <h1>Users Register</h1>
+    <h1>Users</h1>
     <mat-divider></mat-divider>
     <br /><br />
     <table mat-table [dataSource]="dataSource" matSort>

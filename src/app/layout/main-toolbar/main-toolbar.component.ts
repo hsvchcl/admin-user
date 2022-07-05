@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-main-toolbar',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-toolbar.component.css'],
 })
 export class MainToolbarComponent implements OnInit {
+  currentUser = firebase.auth().currentUser;
   constructor(public auth: AngularFireAuth, private router: Router) {}
 
   @Output() openMenu = new EventEmitter<any>();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth, PERSISTENCE } from '@angular/fire/compat/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { Router } from '@angular/router';
 
@@ -13,8 +13,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.authState.subscribe((authState) => {
-      console.log(authState?.uid);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home/add_user']);
     });
   }
 
