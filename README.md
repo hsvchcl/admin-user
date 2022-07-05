@@ -1,27 +1,24 @@
-# RememberProject
+# USERADMIN
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
+![RememberProject](https://firebasestorage.googleapis.com/v0/b/hsvchcl-angular-crud.appspot.com/o/Captura%20de%20Pantalla%202022-07-04%20a%20la(s)%2022.00.03.png?alt=media&token=504cd1e4-5539-4608-a4d4-196ae95b4dba)
 
-## Development server
+CRUD desarrollado con Angular (versión 14) utilizando firebase como BFF. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Informacion del proyecto
+- Desarrolado en Angular version 14
+- UI con [Angular Material](https://material.angular.io/)
+- Login utilizando Auth via [Angular Fire](https://github.com/angular/angularfire)
 
-## Code scaffolding
+## Docker
+Puedes descargar la imagen desde docker hub para ejecutar la aplicacion en tu equipo en un dos x 3 😜
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`docker pull hsvchcl/nginx:useradmin`
 
-## Build
+----------
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Vista previa
+![SignIn](https://firebasestorage.googleapis.com/v0/b/hsvchcl-angular-crud.appspot.com/o/sigIn.gif?alt=media&token=fcd72bab-949c-4e59-9528-751a7df3d94d)
 
-## Running unit tests
+![MenuLateral](https://firebasestorage.googleapis.com/v0/b/hsvchcl-angular-crud.appspot.com/o/open_close_menu.gif?alt=media&token=01779c4f-e91a-4351-a26f-debc5ebb7963)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![IngresoUsuario](https://firebasestorage.googleapis.com/v0/b/hsvchcl-angular-crud.appspot.com/o/save_user.gif?alt=media&token=4f1f0f28-f3cc-41a2-be81-0f83fa807834)
